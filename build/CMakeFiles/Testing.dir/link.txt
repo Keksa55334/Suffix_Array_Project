@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Testing.dir/test/test.cpp.o -o Testing   -L/home/matija/Desktop/Project/include/Functions  -Wl,-rpath,/home/matija/Desktop/Project/include/Functions include/Functions/libFunctions.a lib/libgtest_main.a lib/libgmock_main.a lib/libgmock.a lib/libgtest.a 

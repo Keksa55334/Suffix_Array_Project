@@ -1,0 +1,48 @@
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 failed with the following output:
+Change Dir: /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_13c1f/fast && /usr/bin/make  -f CMakeFiles/cmTC_13c1f.dir/build.make CMakeFiles/cmTC_13c1f.dir/build
+make[1]: Entering directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_13c1f.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX_FLAG_WSHORTEN_64_TO_32  -std=c++11  -Wall  -Wextra  -Wshadow  -Wfloat-equal  -pedantic  -pedantic-errors  -Wshorten-64-to-32   -Wshorten-64-to-32 -o CMakeFiles/cmTC_13c1f.dir/src.cxx.o -c /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wshorten-64-to-32'
+c++: error: unrecognized command-line option '-Wshorten-64-to-32'
+make[1]: *** [CMakeFiles/cmTC_13c1f.dir/build.make:78: CMakeFiles/cmTC_13c1f.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_13c1f/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WD654 failed with the following output:
+Change Dir: /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d6c4b/fast && /usr/bin/make  -f CMakeFiles/cmTC_d6c4b.dir/build.make CMakeFiles/cmTC_d6c4b.dir/build
+make[1]: Entering directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d6c4b.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX_FLAG_WD654  -std=c++11  -Wall  -Wextra  -Wshadow  -Wfloat-equal  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing  -wd654   -wd654 -o CMakeFiles/cmTC_d6c4b.dir/src.cxx.o -c /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-wd654'
+c++: error: unrecognized command-line option '-wd654'
+make[1]: *** [CMakeFiles/cmTC_d6c4b.dir/build.make:78: CMakeFiles/cmTC_d6c4b.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d6c4b/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WTHREAD_SAFETY failed with the following output:
+Change Dir: /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c241e/fast && /usr/bin/make  -f CMakeFiles/cmTC_c241e.dir/build.make CMakeFiles/cmTC_c241e.dir/build
+make[1]: Entering directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c241e.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX_FLAG_WTHREAD_SAFETY  -std=c++11  -Wall  -Wextra  -Wshadow  -Wfloat-equal  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing  -Wthread-safety   -Wthread-safety -o CMakeFiles/cmTC_c241e.dir/src.cxx.o -c /home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wthread-safety'
+c++: error: unrecognized command-line option '-Wthread-safety'
+make[1]: *** [CMakeFiles/cmTC_c241e.dir/build.make:78: CMakeFiles/cmTC_c241e.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/matija/Desktop/Project/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c241e/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Benchmark.dir/src/benchmark.cpp.o -o Benchmark   -L/home/matija/Desktop/Project/include/Functions  -Wl,-rpath,/home/matija/Desktop/Project/include/Functions benchmark/src/libbenchmark.a include/Functions/libFunctions.a -lrt 

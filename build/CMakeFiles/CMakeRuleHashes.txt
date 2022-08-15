@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+fabf82971e4dbc15e159539563c18f54 benchmark/test/CMakeFiles/copy_clobber_memory_assembly_test
+8c06bda753eb7a279e3949f2838377a6 benchmark/test/CMakeFiles/copy_donotoptimize_assembly_test
+aae526c4a78745183307ff1269dc96e7 benchmark/test/CMakeFiles/copy_state_assembly_test

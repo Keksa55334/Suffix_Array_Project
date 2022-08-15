@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Suffix_Array_Project.dir/src/main.cpp.o -o Suffix_Array_Project   -L/home/matija/Desktop/Project/include/Functions  -Wl,-rpath,/home/matija/Desktop/Project/include/Functions include/Functions/libFunctions.a 

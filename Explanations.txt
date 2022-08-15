@@ -1,0 +1,76 @@
+TRIE EXPLANATION
+The idea was to construct a trie, consisting of "chains" of nodes, each chain a suffix, and sorting them aplhabetically while inserting nodes. Afterwards, travesing that trie to construct a suffix array.
+Struct Slovo represents a trie node. It is comprised of a char which represents its letter in alphabet, and a vector in which it's children nodes are contained, sorted alphabethically. Also, comparison operators are overloaded. Another important containter for trie construction is vector<Slovo *> active, which points at all Slovo nodes which are eligible to get more children nodes.  At first, we only have one node, with char value " "(it doesn't really matter which char is used for root node). Root node is pushed into active vector. Then we start to loop through the input string. For every char of the string, we create a node and insert(inserting it in its place according to lexographical sorting) it into children_vector of all currently active nodes(nodes in active vector). If a node with the same char is already present in the children vector, there will be no insertion, but the node with the equal char in children vector will become active. The inserted node will replace it's parent node in the active vector, with the exception of the root node, which is always active. The process repeats until we reach the end of the string. Then we insert $ char into children_vector to signalize the end of a chain.
+After the trie is created, it is automatically sorted, so we only need to DFS the trie, where each chain is a suffix, and its suffix index can easily be calculated by subtracting chain debth-1(cause of $ sign) from input string length. Example on string "Mauna".
+
+STEP 1:    " "-Empty Node,start looping through string  ACTIVE:" "
+STEP 2: char M, insert it into all active nodes, and make it active, root node stays active         " "    ACTIVE:" ",M
+              /
+             M
+STEP 3: char A,insert it into all active nodes, it is lexographicaly smaller than M so it will be inserted before it in the children_vector, but it will also be inserted in children vector of M, replacing it as active,
+              " "           ACTIVE:" ",A,A
+            /  |
+           A   M
+               |
+               A
+STEP 4:char U ,same as before, it is lexiographically greater than A, M, so it's chain will be inserted last
+            " "
+           / | \             ACTIVE:" ",U,U,U
+          A  M  U
+         /   |
+        U    A
+             |
+             U
+
+STEP 5:char N              ACTIVE: " ",N,N,N,N
+         " "
+      /  |  \  \
+     A   M  N  U
+    /    |      \
+   U     A       N
+   |     |
+   N     U
+         |
+         N
+
+STEP 6:char A, A is already present in children_vector of " ",so instead of insertion, it will become active
+            " "
+        /  |  \  \
+active->A   M  N  U         ACTIVE:" ",A,A,A,A,A
+        |   |  |   \
+        U   A  A    N
+        |   |       |
+        N   U       A
+        |   |
+        A   N
+            |
+            A
+
+STEP 7: end of string, insert $
+
+            " "
+        /   |  \  \
+        A   M  N  U
+      / |   |  |   \
+      $ U   A  A    N
+        |   |  |    |
+        N   U  $    A
+        |   |       |
+        A   N       $
+        |   |
+        $   A
+            |
+            $
+                                            n=input string length=5   length=debth
+Now, to construct suffix array, we just use DFS and insert into it (n-(length-1))
+suffix array=(5-(2-1)), (5-(5-1)), (5-(6-1)), (5-(3-1)), (5-(4-1))
+              4           1         0           3           2
+
+
+
+BRUTE FORCE APPROACH
+Find all suffixes, and then sort them
+
+
+DIVIDING INTO 26 CONTAINERS APPROACH 1- similar to brute force approach
+Suffixes that start with char A are automatically before suffixes that start with char B etc etc. So we loop through input string and store each suffix into a vector according to its first letter, then sort the vector and join the suffixes in one array.

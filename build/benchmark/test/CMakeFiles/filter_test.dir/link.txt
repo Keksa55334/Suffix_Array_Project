@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11  -Wall  -Wextra  -Wshadow  -Wfloat-equal  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing CMakeFiles/filter_test.dir/filter_test.cc.o -o filter_test  ../src/libbenchmark_main.a ../src/libbenchmark.a -lrt 

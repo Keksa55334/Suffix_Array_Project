@@ -1,0 +1,148 @@
+	.file	"state_assembly_test.cc"
+	.text
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC0:
+	.string	"benchmark::State::StateIterator& benchmark::State::StateIterator::operator++()"
+	.align 8
+.LC1:
+	.string	"/home/matija/Desktop/Project/benchmark/include/benchmark/benchmark.h"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC2:
+	.string	"cached_ > 0"
+	.text
+	.p2align 4
+	.globl	test_for_auto_loop
+	.hidden	test_for_auto_loop
+	.type	test_for_auto_loop, @function
+test_for_auto_loop:
+.LFB2824:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	call	GetState@PLT
+	cmpb	$0, 26(%rax)
+	movq	%rax, %rbp
+	je	.L2
+	movq	%rax, %rdi
+	call	_ZN9benchmark5State16StartKeepRunningEv@PLT
+.L3:
+	movq	%rbp, %rdi
+	call	_ZN9benchmark5State17FinishKeepRunningEv@PLT
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	movl	$101, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	.cfi_restore_state
+	movq	16(%rax), %rbx
+	movq	%rax, %rdi
+	call	_ZN9benchmark5State16StartKeepRunningEv@PLT
+	testq	%rbx, %rbx
+	je	.L3
+	movl	$42, %edx
+	testq	%rbx, %rbx
+	jle	.L16
+	subq	$1, %rbx
+	movq	%rbx, %rcx
+	je	.L3
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	subq	$1, %rcx
+	jne	.L5
+	jmp	.L3
+.L16:
+	leaq	.LC0(%rip), %rcx
+	movl	$943, %edx
+	leaq	.LC1(%rip), %rsi
+	leaq	.LC2(%rip), %rdi
+	call	__assert_fail@PLT
+	.cfi_endproc
+.LFE2824:
+	.size	test_for_auto_loop, .-test_for_auto_loop
+	.p2align 4
+	.globl	test_while_loop
+	.hidden	test_while_loop
+	.type	test_while_loop, @function
+test_while_loop:
+.LFB2826:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movl	$42, %ebx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	call	GetState@PLT
+	movq	%rax, %rbp
+	jmp	.L21
+	.p2align 4,,10
+	.p2align 3
+.L23:
+	subq	$1, %rdx
+	movq	%rdx, 0(%rbp)
+.L21:
+	movq	0(%rbp), %rdx
+	testq	%rdx, %rdx
+	jg	.L23
+	cmpb	$0, 24(%rbp)
+	je	.L24
+.L20:
+	movq	%rbp, %rdi
+	call	_ZN9benchmark5State17FinishKeepRunningEv@PLT
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	movl	$101, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L24:
+	.cfi_restore_state
+	movq	%rbp, %rdi
+	call	_ZN9benchmark5State16StartKeepRunningEv@PLT
+	cmpb	$0, 26(%rbp)
+	jne	.L20
+	movq	0(%rbp), %rdx
+	testq	%rdx, %rdx
+	jle	.L20
+	jmp	.L23
+	.cfi_endproc
+.LFE2826:
+	.size	test_while_loop, .-test_while_loop
+	.section	.text.startup,"ax",@progbits
+	.p2align 4
+	.type	_GLOBAL__sub_I_test_for_auto_loop, @function
+_GLOBAL__sub_I_test_for_auto_loop:
+.LFB3651:
+	.cfi_startproc
+	jmp	_ZN9benchmark8internal17InitializeStreamsEv@PLT
+	.cfi_endproc
+.LFE3651:
+	.size	_GLOBAL__sub_I_test_for_auto_loop, .-_GLOBAL__sub_I_test_for_auto_loop
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_test_for_auto_loop
+	.ident	"GCC: (GNU) 12.1.0"
+	.section	.note.GNU-stack,"",@progbits

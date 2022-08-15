@@ -1,0 +1,267 @@
+	.file	"donotoptimize_assembly_test.cc"
+	.text
+	.p2align 4
+	.globl	test_with_rvalue
+	.hidden	test_with_rvalue
+	.type	test_with_rvalue, @function
+test_with_rvalue:
+.LFB2828:
+	.cfi_startproc
+	movl	$42, %eax
+	ret
+	.cfi_endproc
+.LFE2828:
+	.size	test_with_rvalue, .-test_with_rvalue
+	.p2align 4
+	.globl	test_with_large_rvalue
+	.hidden	test_with_large_rvalue
+	.type	test_with_large_rvalue, @function
+test_with_large_rvalue:
+.LFB2830:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movd	%eax, %xmm1
+	movl	%eax, -8(%rsp)
+	pshufd	$0xe0, %xmm1, %xmm0
+	movq	%xmm0, -16(%rsp)
+	ret
+	.cfi_endproc
+.LFE2830:
+	.size	test_with_large_rvalue, .-test_with_large_rvalue
+	.p2align 4
+	.globl	test_with_non_trivial_rvalue
+	.hidden	test_with_non_trivial_rvalue
+	.type	test_with_non_trivial_rvalue, @function
+test_with_non_trivial_rvalue:
+.LFB2832:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movl	%eax, -4(%rsp)
+	ret
+	.cfi_endproc
+.LFE2832:
+	.size	test_with_non_trivial_rvalue, .-test_with_non_trivial_rvalue
+	.p2align 4
+	.globl	test_with_lvalue
+	.hidden	test_with_lvalue
+	.type	test_with_lvalue, @function
+test_with_lvalue:
+.LFB2834:
+	.cfi_startproc
+	movl	$101, %eax
+	ret
+	.cfi_endproc
+.LFE2834:
+	.size	test_with_lvalue, .-test_with_lvalue
+	.p2align 4
+	.globl	test_with_large_lvalue
+	.hidden	test_with_large_lvalue
+	.type	test_with_large_lvalue, @function
+test_with_large_lvalue:
+.LFB2835:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movd	%eax, %xmm1
+	movl	%eax, -8(%rsp)
+	pshufd	$0xe0, %xmm1, %xmm0
+	movq	%xmm0, -16(%rsp)
+	ret
+	.cfi_endproc
+.LFE2835:
+	.size	test_with_large_lvalue, .-test_with_large_lvalue
+	.p2align 4
+	.globl	test_with_extra_large_lvalue_with_op
+	.hidden	test_with_extra_large_lvalue_with_op
+	.type	test_with_extra_large_lvalue_with_op, @function
+test_with_extra_large_lvalue_with_op:
+.LFB2836:
+	.cfi_startproc
+	movl	$42, 64+ExtraLargeObj(%rip)
+	ret
+	.cfi_endproc
+.LFE2836:
+	.size	test_with_extra_large_lvalue_with_op, .-test_with_extra_large_lvalue_with_op
+	.p2align 4
+	.globl	test_with_big_array_with_op
+	.hidden	test_with_big_array_with_op
+	.type	test_with_big_array_with_op, @function
+test_with_big_array_with_op:
+.LFB2838:
+	.cfi_startproc
+	movl	$42, 64+BigArray(%rip)
+	ret
+	.cfi_endproc
+.LFE2838:
+	.size	test_with_big_array_with_op, .-test_with_big_array_with_op
+	.p2align 4
+	.globl	test_with_non_trivial_lvalue
+	.hidden	test_with_non_trivial_lvalue
+	.type	test_with_non_trivial_lvalue, @function
+test_with_non_trivial_lvalue:
+.LFB2840:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movl	%eax, -4(%rsp)
+	ret
+	.cfi_endproc
+.LFE2840:
+	.size	test_with_non_trivial_lvalue, .-test_with_non_trivial_lvalue
+	.p2align 4
+	.globl	test_with_const_lvalue
+	.hidden	test_with_const_lvalue
+	.type	test_with_const_lvalue, @function
+test_with_const_lvalue:
+.LFB2841:
+	.cfi_startproc
+	movl	$123, %eax
+	ret
+	.cfi_endproc
+.LFE2841:
+	.size	test_with_const_lvalue, .-test_with_const_lvalue
+	.p2align 4
+	.globl	test_with_large_const_lvalue
+	.hidden	test_with_large_const_lvalue
+	.type	test_with_large_const_lvalue, @function
+test_with_large_const_lvalue:
+.LFB3695:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movd	%eax, %xmm1
+	movl	%eax, -8(%rsp)
+	pshufd	$0xe0, %xmm1, %xmm0
+	movq	%xmm0, -16(%rsp)
+	ret
+	.cfi_endproc
+.LFE3695:
+	.size	test_with_large_const_lvalue, .-test_with_large_const_lvalue
+	.p2align 4
+	.globl	test_with_const_extra_large_obj
+	.hidden	test_with_const_extra_large_obj
+	.type	test_with_const_extra_large_obj, @function
+test_with_const_extra_large_obj:
+.LFB2845:
+	.cfi_startproc
+	ret
+	.cfi_endproc
+.LFE2845:
+	.size	test_with_const_extra_large_obj, .-test_with_const_extra_large_obj
+	.p2align 4
+	.globl	test_with_const_big_array
+	.hidden	test_with_const_big_array
+	.type	test_with_const_big_array, @function
+test_with_const_big_array:
+.LFB2847:
+	.cfi_startproc
+	ret
+	.cfi_endproc
+.LFE2847:
+	.size	test_with_const_big_array, .-test_with_const_big_array
+	.p2align 4
+	.globl	test_with_non_trivial_const_lvalue
+	.hidden	test_with_non_trivial_const_lvalue
+	.type	test_with_non_trivial_const_lvalue, @function
+test_with_non_trivial_const_lvalue:
+.LFB3697:
+	.cfi_startproc
+	movl	ExternInt(%rip), %eax
+	movl	%eax, -4(%rsp)
+	ret
+	.cfi_endproc
+.LFE3697:
+	.size	test_with_non_trivial_const_lvalue, .-test_with_non_trivial_const_lvalue
+	.p2align 4
+	.globl	test_div_by_two
+	.hidden	test_div_by_two
+	.type	test_div_by_two, @function
+test_div_by_two:
+.LFB2851:
+	.cfi_startproc
+	movl	%edi, %eax
+	movl	$2, %ecx
+	cltd
+	idivl	%ecx
+	ret
+	.cfi_endproc
+.LFE2851:
+	.size	test_div_by_two, .-test_div_by_two
+	.p2align 4
+	.globl	test_inc_integer
+	.hidden	test_inc_integer
+	.type	test_inc_integer, @function
+test_inc_integer:
+.LFB2852:
+	.cfi_startproc
+	movl	$1, %eax
+	addl	$1, %eax
+	addl	$1, %eax
+	addl	$1, %eax
+	addl	$1, %eax
+	ret
+	.cfi_endproc
+.LFE2852:
+	.size	test_inc_integer, .-test_inc_integer
+	.p2align 4
+	.globl	test_pointer_rvalue
+	.hidden	test_pointer_rvalue
+	.type	test_pointer_rvalue, @function
+test_pointer_rvalue:
+.LFB2853:
+	.cfi_startproc
+	movl	$42, -4(%rsp)
+	leaq	-4(%rsp), %rax
+	ret
+	.cfi_endproc
+.LFE2853:
+	.size	test_pointer_rvalue, .-test_pointer_rvalue
+	.p2align 4
+	.globl	test_pointer_const_lvalue
+	.hidden	test_pointer_const_lvalue
+	.type	test_pointer_const_lvalue, @function
+test_pointer_const_lvalue:
+.LFB3699:
+	.cfi_startproc
+	movl	$42, -4(%rsp)
+	leaq	-4(%rsp), %rax
+	ret
+	.cfi_endproc
+.LFE3699:
+	.size	test_pointer_const_lvalue, .-test_pointer_const_lvalue
+	.p2align 4
+	.globl	test_pointer_lvalue
+	.hidden	test_pointer_lvalue
+	.type	test_pointer_lvalue, @function
+test_pointer_lvalue:
+.LFB2857:
+	.cfi_startproc
+	movl	$42, -4(%rsp)
+	leaq	-4(%rsp), %rax
+	ret
+	.cfi_endproc
+.LFE2857:
+	.size	test_pointer_lvalue, .-test_pointer_lvalue
+	.section	.text.startup,"ax",@progbits
+	.p2align 4
+	.type	_GLOBAL__sub_I_test_with_rvalue, @function
+_GLOBAL__sub_I_test_with_rvalue:
+.LFB3693:
+	.cfi_startproc
+	jmp	_ZN9benchmark8internal17InitializeStreamsEv@PLT
+	.cfi_endproc
+.LFE3693:
+	.size	_GLOBAL__sub_I_test_with_rvalue, .-_GLOBAL__sub_I_test_with_rvalue
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_test_with_rvalue
+	.section	.rodata
+	.align 32
+	.type	_ZL18ConstExtraLargeObj, @object
+	.size	_ZL18ConstExtraLargeObj, 8196
+_ZL18ConstExtraLargeObj:
+	.zero	8196
+	.align 32
+	.type	_ZL13ConstBigArray, @object
+	.size	_ZL13ConstBigArray, 8196
+_ZL13ConstBigArray:
+	.zero	8196
+	.ident	"GCC: (GNU) 12.1.0"
+	.section	.note.GNU-stack,"",@progbits
